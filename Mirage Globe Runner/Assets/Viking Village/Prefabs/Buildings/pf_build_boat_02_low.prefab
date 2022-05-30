@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 400000}
   m_Layer: 0
   m_Name: pf_build_boat_02_low
-  m_TagString: Untagged
+  m_TagString: JustSpawned
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1188,7 +1188,6 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 96277ceebc5377447aa2d5d5795d7c55, type: 3}
 --- !u!4 &5439925570323279218 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400004, guid: 96277ceebc5377447aa2d5d5795d7c55,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 96277ceebc5377447aa2d5d5795d7c55, type: 3}
   m_PrefabInstance: {fileID: 5439925570322888694}
   m_PrefabAsset: {fileID: 0}

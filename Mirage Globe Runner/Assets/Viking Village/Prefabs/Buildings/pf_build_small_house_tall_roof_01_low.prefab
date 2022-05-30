@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 400014}
   m_Layer: 0
   m_Name: pf_build_small_house_tall_roof_01_low
-  m_TagString: Untagged
+  m_TagString: JustSpawned
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

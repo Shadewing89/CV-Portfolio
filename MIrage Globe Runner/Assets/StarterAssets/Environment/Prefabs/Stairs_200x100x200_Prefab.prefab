@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4055211063494181534}
   m_Layer: 0
   m_Name: Stairs_200x100x200_Prefab
-  m_TagString: Untagged
+  m_TagString: JustSpawned
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

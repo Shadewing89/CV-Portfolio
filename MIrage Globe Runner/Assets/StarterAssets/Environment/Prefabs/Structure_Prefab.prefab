@@ -2060,7 +2060,7 @@ GameObject:
   - component: {fileID: 7034412574349127641}
   m_Layer: 0
   m_Name: Structure_Prefab
-  m_TagString: Untagged
+  m_TagString: JustSpawned
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 73

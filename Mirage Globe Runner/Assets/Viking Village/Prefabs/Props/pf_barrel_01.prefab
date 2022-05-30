@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 13600000}
   m_Layer: 10
   m_Name: pf_barrel_01
-  m_TagString: Untagged
+  m_TagString: JustSpawned
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967292
