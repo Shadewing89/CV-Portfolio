@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 20500000}
   m_Layer: 10
   m_Name: pf_sword_01
-  m_TagString: JustSpawned
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967292

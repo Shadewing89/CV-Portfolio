@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6500008}
   m_Layer: 10
   m_Name: pf_build_wall_corner_01_low
-  m_TagString: JustSpawned
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

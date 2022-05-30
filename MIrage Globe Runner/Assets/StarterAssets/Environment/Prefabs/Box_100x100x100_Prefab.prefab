@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6023149417776915991}
   m_Layer: 0
   m_Name: Box_100x100x100_Prefab
-  m_TagString: JustSpawned
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 73
