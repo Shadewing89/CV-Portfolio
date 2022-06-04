@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -86,6 +88,10 @@ namespace StarterAssets
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
+        //CHANGES HERE
+        public Vector3 playerStayPosition;
+        public Vector3 posA;
+        public GameObject treadmillGlobe;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -150,6 +156,8 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+            //CHANGES HERE
+            playerStayPosition = gameObject.transform.position;
         }
 
         private void Update()
@@ -159,6 +167,9 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            //CHANGES HERE
+            posA = gameObject.transform.position;
+            
         }
 
         private void LateUpdate()
@@ -250,6 +261,8 @@ namespace StarterAssets
 
             // normalise input direction
             Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+            //CHANGES HERE
+            Vector3 inputRotationDirection = new Vector3(-_input.move.y, 0.0f, _input.move.x).normalized;
 
             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is a move input rotate player when the player is moving
@@ -262,8 +275,9 @@ namespace StarterAssets
 
                 // rotate to face input direction relative to camera position
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                //CHANGES HERE, rotate the globe
+                treadmillGlobe.transform.Rotate(inputRotationDirection, Space.World);
             }
-
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
@@ -271,16 +285,23 @@ namespace StarterAssets
             //CHANGES HERE, added 0f to move
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) * 0f +
                              new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-
+            
+            
             // update animator if using character
             if (_hasAnimator)
             {
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
+            //CHANGES HERE, resets position by force
+            if (posA.x != playerStayPosition.x || posA.z != playerStayPosition.z)
+            {
+                Debug.Log("Position gets reset");
+                //WaitAndMoveBack(1f);
+                transform.position = Vector3.MoveTowards(posA, playerStayPosition, 0.5f);
+            }
         }
-
-        private void JumpAndGravity()
+            private void JumpAndGravity()
         {
             if (Grounded)
             {
