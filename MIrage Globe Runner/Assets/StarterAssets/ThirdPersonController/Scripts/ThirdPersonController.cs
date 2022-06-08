@@ -262,7 +262,7 @@ namespace StarterAssets
             // normalise input direction
             Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
             //CHANGES HERE
-            Vector3 inputRotationDirection = new Vector3(-_input.move.y, 0.0f, _input.move.x).normalized;
+            Vector3 inputRotationDirection = new Vector3(-_input.move.y, 0.0f, _input.move.x).normalized * targetSpeed / 100f;
 
             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is a move input rotate player when the player is moving
