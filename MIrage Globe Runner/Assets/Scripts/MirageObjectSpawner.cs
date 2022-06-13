@@ -6,12 +6,11 @@ public class MirageObjectSpawner : MonoBehaviour
 {
     //public List<GameObject> objectPrefabs = new List<GameObject>();
     public GameObject prefabParent;
-    public GameObject spawnLocation;
+    public List<GameObject> spawnLocations = new List<GameObject>();
     public GameObject rotatingGlobe;
     public GameObject spawnedPrf;
-    public float waitSeconds = 0.5f;
-    //private int randomPrefabNumber;
-
+    public int allowedSpawnsLimit = 100;
+    public List<GameObject> spawnedObjects = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -25,43 +24,52 @@ public class MirageObjectSpawner : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        //Debug.Log(other.transform.tag + " is sitting in the spawnzone.");
+        if (spawnedObjects.Count >= allowedSpawnsLimit)
+        {
+            Debug.Log("Limit reached, destroying.");
+            for (int i = 0; i < spawnedObjects.Count; i++)
+            {
+                Destroy(spawnedObjects[i].gameObject);
+                spawnedObjects.Remove(spawnedObjects[i]);
+            }
+            SpawnGameObjectPrefab();
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "LeftSpawnArea" || other.tag == "JustSpawned")
+        {
+            spawnedObjects.Add(other.gameObject);
+
+        }
         //Debug.Log("Something entered spawnzone.");
         if (other.tag == "LeftSpawnArea")
         {
             Debug.Log(other.gameObject.name + " is being destroyed.");
+            spawnedObjects.Remove(other.gameObject);
             Destroy(other.gameObject);
-            StartCoroutine("ZoneEnter");
-            //something is crashing and the spawn stays on in a loop
+            SpawnGameObjectPrefab();
+
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "JustSpawned")
         {
+            spawnedObjects.Remove(other.gameObject);
             other.tag = "LeftSpawnArea";
             //Debug.Log("Something left spawnzone.");
-            StartCoroutine("ZoneExit");
         }
     }
     public void SpawnGameObjectPrefab()
     {
-        //randomPrefabNumber = Random.Range(0, objectPrefabs.Count);
-        spawnedPrf = Instantiate(prefabParent, spawnLocation.transform.position, Quaternion.Euler(180,0,0));
-        spawnedPrf.transform.parent = rotatingGlobe.transform;
-
+        for (int i = 0; i < spawnLocations.Count; i++)
+        {
+            spawnedPrf = Instantiate(prefabParent, spawnLocations[i].transform.position, Quaternion.Euler(0,0,0));
+            spawnedPrf.transform.parent = rotatingGlobe.transform;
+        }
+                   
         //Debug.Log("Something was spawned!");
     }
-    public IEnumerator ZoneEnter()
-    {
-        yield return new WaitForSeconds(waitSeconds);
-        SpawnGameObjectPrefab();
-    }
-    public IEnumerator ZoneExit()
-    {
-        yield return new WaitForSeconds(waitSeconds);
-    }
+
 }

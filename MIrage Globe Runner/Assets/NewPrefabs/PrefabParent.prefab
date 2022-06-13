@@ -180,5 +180,5 @@ MonoBehaviour:
   - {fileID: 100000, guid: 952a93a9712cdd94181dad00edf409ba, type: 3}
   - {fileID: 100002, guid: ddfd4e07d34580a4e89ee5d0f094307d, type: 3}
   spawnLocation: {fileID: 4276147064131475288, guid: 5df2dc91475a0ef438f28bf9e3490c0e, type: 3}
-  rotatingGlobe: {fileID: 6245784697064062264, guid: 7f2ce35935379a34fb569e7c3f512968, type: 3}
+  rotatingGlobePoint: {fileID: 4963339239845388360, guid: a4820a45cc1758241ae80373435fc2fa, type: 3}
   spawnedPrf: {fileID: 0}
