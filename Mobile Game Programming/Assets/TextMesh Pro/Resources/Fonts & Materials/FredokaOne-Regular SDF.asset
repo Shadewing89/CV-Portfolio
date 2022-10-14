@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!28 &-1016017487383861013
+--- !u!28 &-4870356630723250732
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,11 +60,11 @@ MonoBehaviour:
   m_Name: FredokaOne-Regular SDF
   m_EditorClassIdentifier: 
   hashCode: -1279090830
-  material: {fileID: 110161724629359901}
+  material: {fileID: 6723843427412674800}
   materialHashCode: -792279406
   m_Version: 1.1.0
-  m_SourceFontFileGUID: 175a2f4496c79be4e97c79c9d045d379
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 175a2f4496c79be4e97c79c9d045d379,
+  m_SourceFontFileGUID: 5941ab71c9e6be44c97052e4cfb038d7
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 5941ab71c9e6be44c97052e4cfb038d7,
     type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
@@ -1820,7 +1820,7 @@ MonoBehaviour:
     m_GlyphIndex: 219
     m_Scale: 1
   m_AtlasTextures:
-  - {fileID: -1016017487383861013}
+  - {fileID: -4870356630723250732}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 0
@@ -2502,7 +2502,7 @@ MonoBehaviour:
   m_FallbackFontAssetTable: []
   m_CreationSettings:
     sourceFontFileName: 
-    sourceFontFileGUID: 175a2f4496c79be4e97c79c9d045d379
+    sourceFontFileGUID: 5941ab71c9e6be44c97052e4cfb038d7
     pointSizeSamplingMode: 0
     pointSize: 63
     padding: 5
@@ -2545,7 +2545,7 @@ MonoBehaviour:
   boldSpacing: 7
   italicStyle: 35
   tabSize: 10
---- !u!21 &110161724629359901
+--- !u!21 &6723843427412674800
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -2578,7 +2578,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: -1016017487383861013}
+        m_Texture: {fileID: -4870356630723250732}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:

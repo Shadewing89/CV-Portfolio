@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Module Assignments/Scenes/Module 3 Assignment.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
+  - enabled: 0
+    path: Assets/Module Assignments/Scenes/Module 5 Assignment.unity
+    guid: fc3c42267f629094c94079dc623057c7
+  - enabled: 1
+    path: Assets/Module Assignments/Scenes/Module 6/assignment-6-scene-to-be-fixed-now-fixed.unity
+    guid: a32f614d2cfb3ca47a87b8374c1e6782
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 57f14591c9669114faf06c00916060b0,
       type: 2}

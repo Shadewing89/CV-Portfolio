@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "37333866",
+    "m_SelectedDeviceId": "R5CR91GN0NP",
     "m_SelectedPackage": {
-        "deviceId": "37333866",
+        "deviceId": "R5CR91GN0NP",
         "name": "com.DefaultCompany.MobileGameProgramming",
-        "processId": 31182,
+        "processId": 5088,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -12,6 +12,12 @@
             "deviceId": "37333866",
             "name": "com.DefaultCompany.MobileGameProgramming",
             "processId": 31182,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CR91GN0NP",
+            "name": "com.DefaultCompany.MobileGameProgramming",
+            "processId": 5088,
             "exited": false
         }
     ],
