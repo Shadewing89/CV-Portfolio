@@ -5,7 +5,12 @@ using UnityEngine;
 public class TouchMovement : MonoBehaviour
 {
     public GameObject carrotToFollow;
-    public float speed = 2.0f;
+    public float speed = 20.0f;
+    public Rigidbody playerRb;
+    private void Start()
+    {
+        playerRb = gameObject.GetComponent<Rigidbody>();
+    }
 
     // Update method is called every frame, if the MonoBehaviour is enabled.
     private void Update()
@@ -53,8 +58,12 @@ public class TouchMovement : MonoBehaviour
         float interpolation = speed * Time.deltaTime;
 
         Vector3 position = this.transform.position;
-        position.y = Mathf.Lerp(this.transform.position.y, carrotToFollow.transform.position.y, interpolation);
-        position.x = Mathf.Lerp(this.transform.position.x, carrotToFollow.transform.position.x, interpolation);
+        //position.y = Mathf.Lerp(this.transform.position.y, carrotToFollow.transform.position.y, interpolation);
+        //position.x = Mathf.Lerp(this.transform.position.x, carrotToFollow.transform.position.x, interpolation);
+        playerRb.MovePosition(Vector3.Lerp(position, carrotToFollow.transform.position, interpolation));
+        //Player ignored walls, figured it out with these:
+        //https://answers.unity.com/questions/1493163/using-rigidbodymoveposition-with-a-local-position.html
+        //https://docs.unity3d.com/ScriptReference/Rigidbody.MovePosition.html
 
         this.transform.position = position;
     }
