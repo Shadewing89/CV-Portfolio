@@ -7,7 +7,7 @@ namespace Notification
 {
     public class NotificationManager : MonoBehaviour
     {
-        private static readonly string ChannelId = "channel_id";
+        private static readonly string CHANNEL_ID = "channel_id";
         
         private void Awake()
         {
@@ -18,7 +18,7 @@ namespace Notification
         {
             AndroidNotificationChannel notificationChannel = new AndroidNotificationChannel
             {
-                Id = ChannelId,
+                Id = CHANNEL_ID,
                 Name = "Default Channel",
                 Importance = Importance.Default,
                 Description = "Generic notifications"
@@ -45,7 +45,7 @@ namespace Notification
             };
             
             AndroidNotificationCenter.CancelNotification((int)NotificationID.PauseNotification);
-            AndroidNotificationCenter.SendNotificationWithExplicitID(androidNotification, ChannelId, (int)NotificationID.PauseNotification);
+            AndroidNotificationCenter.SendNotificationWithExplicitID(androidNotification, CHANNEL_ID, (int)NotificationID.PauseNotification);
         }
 
         public void SendSettingsButtonNotification()
@@ -58,7 +58,7 @@ namespace Notification
             };
 
             AndroidNotificationCenter.CancelNotification((int)NotificationID.SettingsButtonNotification);
-            AndroidNotificationCenter.SendNotificationWithExplicitID(androidNotification, ChannelId, (int)NotificationID.SettingsButtonNotification);
+            AndroidNotificationCenter.SendNotificationWithExplicitID(androidNotification, CHANNEL_ID, (int)NotificationID.SettingsButtonNotification);
         }
     }
 }

@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 namespace BubblePopper
@@ -28,7 +30,8 @@ namespace BubblePopper
                 toBeChecked.Add(touching);
             }
 
-            while (toBeChecked.Count > 0)
+            int infiniteLoopIndex = 0;
+            while (toBeChecked.Count > 0 && infiniteLoopIndex < 200)
             {
                 for (int i = 0; i < toBeChecked.Count; i++)
                 {
@@ -36,6 +39,7 @@ namespace BubblePopper
 
                     if (currentCheckedBall == null)
                     {
+                        toBeChecked.Remove(currentCheckedBall);
                         continue;
                     }
                     
@@ -47,29 +51,45 @@ namespace BubblePopper
                     GameBall currentGameBall = currentCheckedBall.GetComponent<GameBall>();
                     foreach (GameObject nextOne in currentGameBall.touchingObjects)
                     {
-                        if (!toBeChecked.Contains(nextOne) && !nextOne.GetComponent<GameBall>().Checked)
+                        if (nextOne != null && !toBeChecked.Contains(nextOne) && !nextOne.GetComponent<GameBall>().Checked)
                         {
                             toBeChecked.Add(nextOne);
                             nextOne.GetComponent<GameBall>().Checked = true;
                         }
                     }
-
                     toBeChecked.Remove(currentCheckedBall);
                 }
+                infiniteLoopIndex++;
+            }
+
+            if(infiniteLoopIndex >= 200)
+            {
+                Debug.Log("Stopped possible infinite loop while chaining");
             }
             
-            DestroyEveryBallInTheChain();
+            DestroyEveryBallInTheChain(gameBall.transform.position);
         }
 
-        private void DestroyEveryBallInTheChain()
+        private void DestroyEveryBallInTheChain(Vector3 punchDirection)
         {
             int ballCount = objectsInTheChain.Count;
-            foreach (GameObject ballsToBeRemoved in objectsInTheChain)
+            float animationTime = 0.2f;
+            
+            CameraPunch.Instance.PunchCamera(punchDirection, ballCount);
+            
+            foreach (GameObject ballToBeRemoved in objectsInTheChain)
             {
-                Destroy(ballsToBeRemoved);
+                ballToBeRemoved.transform.DOScale(0.8f, animationTime);
+                StartCoroutine(WaitAndDestroy(ballToBeRemoved, animationTime));
             }
             objectsInTheChain.Clear();
             ChainExecutionComplete?.Invoke(ballCount);
+        }
+
+        private IEnumerator WaitAndDestroy(GameObject ballToBeRemoved, float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+            Destroy(ballToBeRemoved);
         }
     }
 }

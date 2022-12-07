@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3493923799573658412}
   - component: {fileID: 8156703332547640982}
   - component: {fileID: -196063043362999400}
-  - component: {fileID: 7009715561671774760}
+  - component: {fileID: 910184664713495}
   m_Layer: 0
   m_Name: CyanSphere
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7009715561671774760
+--- !u!114 &910184664713495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,5 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d96e3f54f53ceb438c7861d48064c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Checked: 0
-  touchingObjects: []
+  ScoreAdded: 0

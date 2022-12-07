@@ -1,6 +1,6 @@
 namespace Enums
 {
-    public enum BallType
+   public enum BallType
     {
         Blue,
         Cyan,

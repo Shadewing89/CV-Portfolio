@@ -46,15 +46,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBallAmount: 100
+  createMoreBallsThreshold: 75
   touchCountText: {fileID: 0}
   ballCountText: {fileID: 0}
   levelText: {fileID: 0}
   scoreText: {fileID: 0}
   ballPrefabs:
-  - {fileID: 6624763119160618863, guid: 50acede12838da84fb7407be2d3ee8e0, type: 3}
-  - {fileID: 6624763119160618863, guid: 52cbcea921521464a9167ea31c0a0895, type: 3}
-  - {fileID: 6624763119160618863, guid: c7b69672844a8864a80d26d775b49210, type: 3}
-  - {fileID: 6624763119160618863, guid: 2a3785d3e71f0e14d8e5b89f5c5da94c, type: 3}
+  - {fileID: 9143385198585770197, guid: 7548c51829671d74bb43bc8b2f260118, type: 3}
+  - {fileID: 8954248723925431841, guid: 4796a34424844d948a2a68e39a746efb, type: 3}
+  - {fileID: 1231134943772059846, guid: ed752ed69fecb224381bee71a056da17, type: 3}
+  - {fileID: 8134316876782280649, guid: 6e3e3766dc46a65478f4825c242fb6cb, type: 3}
   ballParent: {fileID: 0}
 --- !u!114 &5330212094110292601
 MonoBehaviour:

@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-// Added custom namespace since the 'GameManager' is a special word in Unity and changes the default icon of the script by default
 namespace BubblePopper
 {
     public class BubblePopperManager : MonoBehaviour
     {
-        public static BubblePopperManager Instance { get; private set; }
-
         [SerializeField]
         private int startBallAmount;
+        [SerializeField]
+        private int createMoreBallsThreshold;
 
         [SerializeField]
         private TextMeshProUGUI touchCountText;
@@ -37,21 +37,12 @@ namespace BubblePopper
         private void Awake()
         {
             GetComponent<ChainHandler>().ChainExecutionComplete += OnChainExecutionComplete;
-            
-            if(Instance != null && Instance != this)
-            {
-                Destroy(Instance);
-            }
-            else
-            {
-                Instance = this;
-            }
         }
         
         private void OnChainExecutionComplete(int ballAmount)
         {
             AddScore(ballAmount);
-            if (ballParent.transform.childCount < 75 && !doNotSpamMoreBalls)
+            if ((ballParent.transform.childCount - ballAmount) < createMoreBallsThreshold && !doNotSpamMoreBalls)
             {
                 StartCoroutine(WaitAndCreateMoreBalls());
             }
@@ -142,8 +133,13 @@ namespace BubblePopper
                     AddLevelAndResetScore();
                 }
             }
-            
+
+            // levelText.transform.DOScale(1.3f, 0f);
+            // levelText.transform.DOScale(1f, 0.3f);
             SetLevelText();
+            
+            scoreText.transform.DOScale(1.3f, 0f);
+            scoreText.transform.DOScale(1f, 0.3f);
             SetScoreText();
         }
 
