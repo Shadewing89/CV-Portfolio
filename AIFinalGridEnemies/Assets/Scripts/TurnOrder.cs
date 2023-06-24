@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurnOrder : MonoBehaviour
 {
     [SerializeField] List<GameObject> playerUnitsList;
     [SerializeField] List<GameObject> agentsList;
+    public delegate void TurnChange();
+    public static event TurnChange OnTurnChange;
+
 
     void Start()
     {
@@ -28,6 +32,14 @@ public class TurnOrder : MonoBehaviour
                         break;
                 }
             }
+        }
+    }
+    public void ChangeTurn()
+    {
+        if (OnTurnChange != null) //if event is not null, call event to inform agents of turn change
+        {
+            OnTurnChange();
+            
         }
     }
 }

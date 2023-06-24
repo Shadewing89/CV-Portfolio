@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//This will use a few public bools to set movement range, attack range, and turn team
+//This will use a few public ints and bools to set movement range, attack range, and turn team
 public class UnitData : MonoBehaviour
 {
     public int attackRange;
