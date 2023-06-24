@@ -351,9 +351,10 @@ GameObject:
   - component: {fileID: 4553175324965193241}
   - component: {fileID: 8922255644449048813}
   - component: {fileID: 2411992799512521956}
+  - component: {fileID: 1101986588120858852}
   m_Layer: 6
   m_Name: UnitSword
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -518,6 +519,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1101986588120858852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430587702722966959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7ebb30b05143a47b9623a0e1c9c42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 1
+  onlyFurthestAttackRange: 0
+  movementRange: 4
+  teamIndexNumber: 0
+  teamColors:
+  - {fileID: 2100000, guid: 446d43562f5ba1242967b08b6d64cac5, type: 2}
+  - {fileID: 2100000, guid: 685c167224f68614dbc587f4f8cc1776, type: 2}
 --- !u!1 &7563233031515671440
 GameObject:
   m_ObjectHideFlags: 0

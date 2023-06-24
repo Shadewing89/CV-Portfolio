@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1054204268180093487}
   - component: {fileID: 3785562302949615053}
   - component: {fileID: 8989277858160257902}
+  - component: {fileID: 4950553648125209791}
   m_Layer: 0
   m_Name: CubeG
   m_TagString: Untagged
@@ -120,3 +121,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ogColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   newColor: {r: 0, g: 1, b: 0, a: 1}
+  walkableColor: {r: 0, g: 1, b: 1, a: 1}
+--- !u!65 &4950553648125209791
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5162823870617488062}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9, y: 1, z: 0.9}
+  m_Center: {x: 0, y: 0.5, z: 0}
