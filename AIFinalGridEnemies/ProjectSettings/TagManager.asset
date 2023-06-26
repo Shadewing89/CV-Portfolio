@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WalkPath
   - AttackRange
+  - AttackPoint
   layers:
   - Default
   - TransparentFX
