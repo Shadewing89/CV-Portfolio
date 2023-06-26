@@ -39,7 +39,6 @@ public class TurnOrder : MonoBehaviour
         if (OnTurnChange != null) //if event is not null, call event to inform agents of turn change
         {
             OnTurnChange();
-            
         }
     }
 }
