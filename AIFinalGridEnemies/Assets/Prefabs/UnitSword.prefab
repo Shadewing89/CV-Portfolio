@@ -910,10 +910,27 @@ MonoBehaviour:
   onlyFurthestAttackRange: 0
   movementRange: 4
   teamIndexNumber: 0
+  playerUnitsList: []
+  agentsList: []
   teamColors:
   - {fileID: 2100000, guid: 446d43562f5ba1242967b08b6d64cac5, type: 2}
   - {fileID: 2100000, guid: 685c167224f68614dbc587f4f8cc1776, type: 2}
+  swordAttackPoints:
+  - {fileID: 8662537291508332850}
+  - {fileID: 8446647361764273676}
+  - {fileID: 8508709895593631365}
+  - {fileID: 4986722254339025541}
+  spearAttackPoints:
+  - {fileID: 8051875315748849522}
+  - {fileID: 4276446133059099048}
+  - {fileID: 5127114194941090078}
+  - {fileID: 321134175137351273}
+  - {fileID: 4327713796944435324}
+  - {fileID: 1123566351671507064}
+  - {fileID: 5415389102065459212}
+  - {fileID: 5743741995485825074}
   attackRangeIndicator: {fileID: 8164361084606073309}
+  movementTarget: {fileID: 0}
 --- !u!1 &7563233031515671440
 GameObject:
   m_ObjectHideFlags: 0
