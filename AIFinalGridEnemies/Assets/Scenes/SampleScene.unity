@@ -2215,6 +2215,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 208f53bbe40b3144595cbd08e4482f0f, type: 3}
+--- !u!1 &202717817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2744499942030830124, guid: 208f53bbe40b3144595cbd08e4482f0f, type: 3}
+  m_PrefabInstance: {fileID: 202717816}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &209991952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7743,6 +7748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitSpear
       objectReference: {fileID: 0}
+    - target: {fileID: 8798675683571805751, guid: 98baa7e357a598148af315237cde0482, type: 3}
+      propertyPath: movementTarget
+      value: 
+      objectReference: {fileID: 202717817}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16232,6 +16241,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1101986588120858852, guid: 8adee659b889dd44f892e7ed526e6332, type: 3}
+      propertyPath: movementTarget
+      value: 
+      objectReference: {fileID: 1845858769}
     - target: {fileID: 4472682440692680098, guid: 8adee659b889dd44f892e7ed526e6332, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -18104,6 +18117,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 208f53bbe40b3144595cbd08e4482f0f, type: 3}
+--- !u!1 &1845858769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2744499942030830124, guid: 208f53bbe40b3144595cbd08e4482f0f, type: 3}
+  m_PrefabInstance: {fileID: 1845858768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1854874491
 GameObject:
   m_ObjectHideFlags: 0

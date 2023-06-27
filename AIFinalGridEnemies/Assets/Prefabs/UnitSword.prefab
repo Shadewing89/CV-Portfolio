@@ -913,6 +913,7 @@ MonoBehaviour:
   teamColors:
   - {fileID: 2100000, guid: 446d43562f5ba1242967b08b6d64cac5, type: 2}
   - {fileID: 2100000, guid: 685c167224f68614dbc587f4f8cc1776, type: 2}
+  attackRangeIndicator: {fileID: 8164361084606073309}
 --- !u!1 &7563233031515671440
 GameObject:
   m_ObjectHideFlags: 0
