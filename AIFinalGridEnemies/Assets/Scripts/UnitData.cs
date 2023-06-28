@@ -13,6 +13,7 @@ public class UnitData : MonoBehaviour
     public int teamIndexNumber;
     private int turn;
     private bool aiTurnUsed;
+    private bool isBeingAttacked;
     [SerializeField] List<GameObject> playerUnitsList;
     [SerializeField] List<GameObject> agentsList;
     public List<Material> teamColors;
@@ -21,10 +22,16 @@ public class UnitData : MonoBehaviour
     private MeshRenderer meshRenderer;
     public GameObject attackRangeIndicator;
     public GameObject movementTarget;
+    public GameObject respawnPoint;
     private GameObject closestTarget;
+    public delegate void PPointIncrement();
+    public static event PPointIncrement OnPlayerPoint;
+    public delegate void CPointIncrement();
+    public static event CPointIncrement OnComPoint;
 
     void Start()
     {
+        isBeingAttacked = false;
         turn = 1;
         meshRenderer = GetComponentInChildren<MeshRenderer>();
         TeamColourSet(teamIndexNumber);
@@ -58,6 +65,7 @@ public class UnitData : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(teamIndexNumber + " is being attacked: " + isBeingAttacked);
         if (turn > 1)
         {
             turn = 0;
@@ -65,11 +73,17 @@ public class UnitData : MonoBehaviour
 
         if (turn == teamIndexNumber)
         {
-            attackRangeIndicator.SetActive(true);
+            if (!attackRangeIndicator.activeInHierarchy)
+            {
+                attackRangeIndicator.SetActive(true);
+            }
         }
         else
         {
-            attackRangeIndicator.SetActive(false);
+            if(attackRangeIndicator.activeInHierarchy)
+            {
+                attackRangeIndicator.SetActive(false);
+            }
         }
 
         switch (turn)
@@ -136,7 +150,7 @@ public class UnitData : MonoBehaviour
             closestTarget = FindClosestTarget(playerUnitsList);
             //https://forum.unity.com/threads/find-a-point-on-a-line-between-two-vector3.140700/ next we calculate if the walkdistance allows us to walk to target
             //or if it needs to be adjusted
-            //Vector3 reachablePosition = Vector3.Lerp(gameObject.transform.position, closestTarget.transform.position, movementRange / (gameObject.transform.position - closestTarget.transform.position).Length());
+            
             float dist = Vector3.Distance(closestTarget.transform.position, transform.position);
             if (dist > movementRange)
             {
@@ -149,6 +163,22 @@ public class UnitData : MonoBehaviour
             }
         }
     }
+    
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "AttackRange" )
+        {
+            isBeingAttacked = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "AttackRange")
+        {
+            isBeingAttacked = false;
+        }
+    }
+
     private void OnEnable()
     {
         TurnOrder.OnTurnChange += IncrementTurn;
@@ -159,6 +189,15 @@ public class UnitData : MonoBehaviour
     }
     private void IncrementTurn() //will need an added check of listing the agents again if more get spawned
     {
+        if (isBeingAttacked)
+        {
+            isBeingAttacked = false;
+            movementTarget.SetActive(false);
+            gameObject.transform.position = respawnPoint.transform.position;
+            movementTarget.transform.position = gameObject.transform.position;
+            movementTarget.SetActive(true);
+            IncreasePoints(turn);
+        }
         if (turn == 0) //at the end of the player turn, activate ai bool with setting to false
         {
             aiTurnUsed = false;
@@ -168,5 +207,23 @@ public class UnitData : MonoBehaviour
             movementTarget.SetActive(false);
         }
         turn++;
+    }
+    public void IncreasePoints(int currentTurn)
+    {
+        if(currentTurn == 0)
+        {
+            if (OnPlayerPoint != null) //if event is not null, call event to inform agents of turn change
+            {
+                OnPlayerPoint();
+            }
+        }
+        if(currentTurn == 1)
+        {
+            if (OnComPoint != null) //if event is not null, call event to inform agents of turn change
+            {
+                OnComPoint();
+            }
+        }
+        
     }
 }
