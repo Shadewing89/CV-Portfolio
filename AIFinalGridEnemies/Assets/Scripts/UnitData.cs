@@ -134,8 +134,19 @@ public class UnitData : MonoBehaviour
             movementTarget.SetActive(true);
             aiTurnUsed = true;
             closestTarget = FindClosestTarget(playerUnitsList);
-            //https://forum.unity.com/threads/find-a-point-on-a-line-between-two-vector3.140700/ next
-            movementTarget.transform.position = closestTarget.transform.position;
+            //https://forum.unity.com/threads/find-a-point-on-a-line-between-two-vector3.140700/ next we calculate if the walkdistance allows us to walk to target
+            //or if it needs to be adjusted
+            //Vector3 reachablePosition = Vector3.Lerp(gameObject.transform.position, closestTarget.transform.position, movementRange / (gameObject.transform.position - closestTarget.transform.position).Length());
+            float dist = Vector3.Distance(closestTarget.transform.position, transform.position);
+            if (dist > movementRange)
+            {
+                Vector3 reachablePosition = movementRange * Vector3.Normalize(closestTarget.transform.position - gameObject.transform.position) + gameObject.transform.position;
+                movementTarget.transform.position = reachablePosition;
+            }
+            else
+            {
+                movementTarget.transform.position = closestTarget.transform.position;
+            }
         }
     }
     private void OnEnable()
